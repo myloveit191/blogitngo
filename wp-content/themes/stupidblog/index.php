@@ -1,5 +1,7 @@
 <?php
-    get_header();
+    get_header();?>
+    <div class = "col-md-5">
+<?php
 if (have_posts()):
     while (have_posts()): the_post(); 
 ?>
@@ -9,5 +11,8 @@ if (have_posts()):
     else:
         echo "<p>Don't any post</p>";
     endif;
+?>
+   </div>
+<?php 
     get_footer();
 ?>
