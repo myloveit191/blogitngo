@@ -8,3 +8,58 @@
     Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments
     
 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.hi-menu ul{
+    list-style-type: none;
+}
+.hi-navbar{
+    background-color: #D0E4F2 !important;
+    padding: 0 !important;
+}
+.hi-navbar button{
+    margin: 8px;
+}
+.hi-navbar a:hover{
+    background-color: #85A5CC;
+    color: #fff !important;
+}
+.hi-navbar li a{
+    text-align: center;
+    font-size: 1.2em;
+    background-color: #D0E4F2;
+    display: block;
+    height: 40px;
+    padding: 0 20px !important;
+    line-height: 40px;
+    color: #000 !important;
+
+}
+
+.hi-menu > li{
+    border-bottom: 3px solid #D0E4F2;
+}
+.hi-menu > li:hover {
+    border-bottom: 3px solid #30395C;
+    
+}
+.hi-menu li:hover .sub-menu{
+    display: block;
+}
+.sub-menu{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top:43px;
+}
+@media (max-width: 575.98px)  {
+    .sub-menu{
+        display: block;
+        position: static;
+    }
+}
