@@ -7,11 +7,10 @@ if (have_posts()):
 ?>
     <h2><?php the_title(); ?></h2>
     <h2><?php the_content(); ?></h2>
-    <!-- <?php the_post_thumbnail();?> -->
-<?php endwhile;
-    blogit_pagination();
+<?php endwhile; ?>
+<?php 
     else:
-        echo "<p>Don't any post</p>";
+        echo "sai roi ban oi";
     endif;
 ?>
    </div>

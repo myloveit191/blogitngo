@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <!-- <link rel="profile" href="http://gmgp.org/xfn/11"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-    <title><?php bloginfo('title'); ?></title>
     <?php wp_head();?>
 </head>
 <body <?php body_class();?> >
@@ -22,7 +21,7 @@
                         'container_class'=>'collapse navbar-collapse',
                         'container_id' => 'navbarTogglerDemo02',
                         'menu_class' => 'navbar-nav mr-auto mt-2 mt-lg-0 hi-menu',
-                        'walker' => new Bootstrap_Nav_Walker(),      
+                        'walker' => new Bootstrap_Nav_Walker(),
                     )
                 );
             ?>

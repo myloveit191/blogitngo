@@ -33,26 +33,3 @@ register_nav_menus(
         'side-bar' => 'Menu sidbar'
     )   
 );
-
-/**
- * Create Pagination
- * @since 1.0.0
- */
-function blogit_pagination()
-{
-    //Page < 5
-    if ( $GLOBALS['wp_query']->max_num_pages < 5 ) {
-         return '';
-    }
-?>
-    <nav class="pagination" role="navigation">
-        <?php if ( get_next_post_link() ) : ?>
-        <div class="prev"><?php next_posts_link( 'Older Posts' ); ?></div>
-        <?php endif; ?>
-        <?php if ( get_previous_post_link() ) : ?>
-        <div class="next"><?php previous_posts_link('Newer Posts'); ?></div>
-        <?php endif; ?>
-    </nav>
-<?php
-}
-add_theme_support( 'post-thumbnails' );
