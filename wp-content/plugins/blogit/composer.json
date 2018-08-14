@@ -1,0 +1,19 @@
+{
+    "name": "nghia/blogit",
+    "description": "Awesome starter plugin example",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Dương Đìng Nghĩa",
+            "email": "nghia15121991@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Inc\\": "./inc"
+        }
+    }
+}
