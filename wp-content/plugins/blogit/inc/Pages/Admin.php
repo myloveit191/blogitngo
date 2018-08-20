@@ -16,9 +16,10 @@ class Admin extends BaseController
     public $callbacks;
     public $pages = array();
     public $subpages = array();
+
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(); // Ke thua constructor cua lop cha
     }
     public function register()
     {

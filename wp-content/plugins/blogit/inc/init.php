@@ -22,6 +22,9 @@ final class Init
     /**
      * Loop through the classes, initialize them
      * and call the register() method if it exists
+     * Dang ky mot services: 
+     * - Vong lap cac class va khoi tao class
+     * - Dang ky service
      */
     public static function register_services()
     {

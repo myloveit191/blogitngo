@@ -5,6 +5,10 @@
  * @package BlogItPlugin
  */
 namespace Inc\Api;
+/**
+ * Lop SettingApi
+ * Dung de: 
+ */
 class SettingsApi
 {
     protected $admin_pages = array();
@@ -12,25 +16,31 @@ class SettingsApi
     protected $settings = array();
     protected $sections = array();
     protected $fields = array();
+
+    //Them acction addAdminMenu vao hook
     public function register()
     {
         if(!empty($this->admin_pages)){
             add_action('admin_menu', array($this, 'addAdminMenu'));
         }
     }
+
+    //Set pages
     public function addPages(array $pages)
     {
         $this->admin_pages = $pages;
 
         return $this;
     }
+
+    //add subPage (Tron page vao admin_subpages)
     public function addSubPages(array $pages)
     {
         $this->admin_subpages = array_merge($this->admin_subpages, $pages);
 
         return $this;
     }
-
+    //Set subpage
     public function withSubPage(string $title =''){
         if (empty($this->admin_pages)) {
             return $this;
@@ -49,6 +59,8 @@ class SettingsApi
         $this->admin_subpages = $subpage;
         return $this;
     }
+
+    // Dang ky menu_page
     public function addAdminMenu()
     {
         foreach ($this->admin_pages as $page) {
@@ -68,12 +80,14 @@ class SettingsApi
 
         return $this;
     }
+
     public function setSections(array $sections)
     {
         $this->Sections = $sections;
 
         return $this;
     }
+    
     public function setFields(array $fields)
     {
         $this->Fields = $fields;
