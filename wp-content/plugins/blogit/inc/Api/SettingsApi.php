@@ -23,6 +23,9 @@ class SettingsApi
         if(!empty($this->admin_pages)){
             add_action('admin_menu', array($this, 'addAdminMenu'));
         }
+        if(!empty($this->settings)){
+            add_action('admin_init', array($this,'registerCustomFields'));
+        }
     }
 
     //Set pages
@@ -53,7 +56,7 @@ class SettingsApi
                 'menu_title' => ($title) ? $title : $admin_page['menu_title'],
                 'capability' => $admin_page['capability'],
                 'menu_slug' => $admin_page['menu_slug'],
-                'callback' => function (){echo '<h1>Hello</h1>';}
+                'callback' => function (){}
             ]
         );
         $this->admin_subpages = $subpage;
@@ -110,7 +113,7 @@ class SettingsApi
         }
         //add settings field
         foreach ($this->fields as $field) {
-            add_setting_field(
+            add_settings_field(
                 $field['id'], $field['title'],
                 (isset($field['callback'])? $field['callback'] : ''),
                 $field['page'], $field['section'],

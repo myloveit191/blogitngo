@@ -27,6 +27,9 @@ class Admin extends BaseController
         $this->callbacks = new AdminCallbacks();
         $this->setPages();
         $this->setSubPages();
+        $this->setSettings();
+        $this->setSections();
+        $this->setFields();
         $this->settings->addPages($this->pages)->withSubPage('Dashboard')->addSubPages($this->subpages)->register();
     }
     public function admin_index()
@@ -82,5 +85,34 @@ class Admin extends BaseController
             ]
         );
         $this->settings->setSettings($args);
+    }
+    public function setSections()
+    {
+        $args = array(
+            [
+                'id' => 'blogit_admin_index',
+                'title' => 'Settings',
+                'callback' => array($this->callbacks, 'blogitaddAdminSection'),
+                'page' => 'blogit-plugin'
+            ]
+        );
+        $this->settings->setSections($args);
+    }
+    public function setFields()
+    {
+        $args = array(
+            [
+                'id' => 'text_example',
+                'title' => 'Text Example',
+                'callback' => array($this->callbacks, 'blogitTextExample'),
+                'page' => 'blogit-plugin',
+                'section' => 'blogit_admin_index',
+                'args' => array(
+                    'label_for' => "text_example",
+                    "class" => "example-class"
+                )
+            ]
+        );
+        $this->settings->setFields($args);
     }
 }

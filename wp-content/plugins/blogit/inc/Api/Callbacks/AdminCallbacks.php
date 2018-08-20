@@ -31,4 +31,13 @@ class AdminCallbacks extends BaseController
     public function blogitOptionsGroup($input){
         return $input;
     }
+    public function blogitaddAdminSection()
+    {
+        echo "Check this beautifull section";
+    }
+    public function blogitTextExample()
+    {
+        $value = esc_attr(get_option('text_example'));
+        echo '<input type="text" class ="regular-text" name="text-example" value ="' . $value . '"placeholder ="Write Something Here!">';
+    }
 }
