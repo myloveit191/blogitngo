@@ -5,7 +5,7 @@
         <?php 
             settings_fields("blogit_options_group");
             do_settings_sections('blogit-plugin');
-            submit_button();
+            submit_button("Save");
         ?>
     </form>
 </div>

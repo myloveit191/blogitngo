@@ -80,9 +80,13 @@ class Admin extends BaseController
         $args = array(
             [
                 'option_group' => 'blogit_options_group',
-                'option_name' => 'text_example',
-                'callback' => array($this->callbacks, 'blogitOptionsGroup')
-            ]
+                'option_name' => 'first_name'
+                // 'callback' => array($this->callbacks, 'blogitOptionsGroup')
+            ],
+            [
+                'option_group' => 'blogit_options_group',
+                'option_name' => 'last_name'
+            ],
         );
         $this->settings->setSettings($args);
     }
@@ -94,7 +98,7 @@ class Admin extends BaseController
                 'title' => 'Settings',
                 'callback' => array($this->callbacks, 'blogitaddAdminSection'),
                 'page' => 'blogit-plugin'
-            ]
+            ],
         );
         $this->settings->setSections($args);
     }
@@ -102,16 +106,27 @@ class Admin extends BaseController
     {
         $args = array(
             [
-                'id' => 'text_example',
-                'title' => 'Text Example',
-                'callback' => array($this->callbacks, 'blogitTextExample'),
+                'id' => 'first_name',
+                'title' => 'First Name',
+                'callback' => array($this->callbacks, 'blogitFirstName'),
                 'page' => 'blogit-plugin',
                 'section' => 'blogit_admin_index',
                 'args' => array(
-                    'label_for' => "text_example",
+                    'label_for' => "first_name",
                     "class" => "example-class"
                 )
-            ]
+            ],
+            [
+                'id' => 'last_name',
+                'title' => 'Last Name',
+                'callback' => array($this->callbacks, 'blogitLastName'),
+                'page' => 'blogit-plugin',
+                'section' => 'blogit_admin_index',
+                'args' => array(
+                    'label_for' => "last_name",
+                    "class" => "example-class"
+                )
+            ],
         );
         $this->settings->setFields($args);
     }

@@ -56,7 +56,7 @@ class SettingsApi
                 'menu_title' => ($title) ? $title : $admin_page['menu_title'],
                 'capability' => $admin_page['capability'],
                 'menu_slug' => $admin_page['menu_slug'],
-                'callback' => function (){}
+                'callback' => $admin_page['callback']
             ]
         );
         $this->admin_subpages = $subpage;
@@ -86,38 +86,50 @@ class SettingsApi
 
     public function setSections(array $sections)
     {
-        $this->Sections = $sections;
+        $this->sections = $sections;
 
         return $this;
     }
     
     public function setFields(array $fields)
     {
-        $this->Fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
-
+    public function sanitize($input)
+    {
+        return $input;
+    }
     public function registerCustomFields()
     {
         //register setting
+
         foreach ($this->settings as $setting) {
-            register_setting($setting['option_group'], $setting['option_name'], 
-            (isset($setting['callback'])? $setting['callback'] : '')
+            register_setting(
+                $setting['option_group'], //Option group
+                $setting['option_name'], //Option name
+                'sanitize'
+                // (isset($setting['callback'])? $setting['callback'] : '')
             );
         }
         //add settings section
         foreach ($this->sections as $section) {
-            add_settings_section($section['id'], $section['title'], 
-            (isset($section['callback'])? $section['callback'] : ''), $section['page']);
+            add_settings_section(
+                $section['id'], // id
+                $section['title'], //title
+                (isset($section['callback'])? $section['callback'] : ''), //callback
+                $section['page']); // page
         }
         //add settings field
         foreach ($this->fields as $field) {
             add_settings_field(
-                $field['id'], $field['title'],
-                (isset($field['callback'])? $field['callback'] : ''),
-                $field['page'], $field['section'],
-                (isset($field['args'])? $field['args'] : '')
+                $field['id'], //id
+                $field['title'], //title
+                (isset($field['callback'])? $field['callback'] : ''), //callback
+                $field['page'], //page
+                $field['section'], //section
+                (isset($field['args'])? $field['args'] : '') //arg
             );
         }
     }

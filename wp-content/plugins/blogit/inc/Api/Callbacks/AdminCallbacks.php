@@ -9,7 +9,7 @@ use Inc\Base\BaseController;
 
 class AdminCallbacks extends BaseController
 {
-    public function adminDashBoard()
+    public function adminDashboard()
     {
         return require_once "$this->plugin_path/templates/admin.php";
     }
@@ -35,9 +35,14 @@ class AdminCallbacks extends BaseController
     {
         echo "Check this beautifull section";
     }
-    public function blogitTextExample()
+    public function blogitFirstName()
     {
-        $value = esc_attr(get_option('text_example'));
-        echo '<input type="text" class ="regular-text" name="text-example" value ="' . $value . '"placeholder ="Write Something Here!">';
+        $value = esc_attr(get_option('first_name'));
+        echo '<input type="text" class ="regular-text" name="first-name" value ="' . $value . '" placeholder ="Write your First Name">';
+    }
+    public function blogitLastName()
+    {
+        $value = esc_attr(get_option('last_name'));
+        echo '<input type="text" class ="regular-text" name="last_name" value ="' . $value . '" placeholder ="Write your Last Name!">';
     }
 }
