@@ -6,15 +6,18 @@
  */
 namespace Inc\Pages;
 
-use \Inc\Api\SettingsApi;
-use \Inc\Api\Callbacks\AdminCallbacks;
-use \Inc\Base\BaseController;
+use Inc\Api\SettingsApi;
+use Inc\Api\Callbacks\AdminCallbacks;
+use Inc\Base\BaseController;
 
 class Admin extends BaseController
 {
     public $settings;
+
     public $callbacks;
+
     public $pages = array();
+
     public $subpages = array();
 
     public function __construct()
@@ -24,18 +27,20 @@ class Admin extends BaseController
     public function register()
     {
         $this->settings = new SettingsApi();
+
         $this->callbacks = new AdminCallbacks();
+
         $this->setPages();
+
         $this->setSubPages();
+
         $this->setSettings();
         $this->setSections();
         $this->setFields();
+
         $this->settings->addPages($this->pages)->withSubPage('Dashboard')->addSubPages($this->subpages)->register();
     }
-    public function admin_index()
-    {
-         require_once "$this->plugin_path/templates/admin.php";
-    }
+    
     public function setPages()
     {
         $this->pages = array([
@@ -64,7 +69,7 @@ class Admin extends BaseController
             'menu_title' => 'Taxonomies',
             'capability' => 'manage_options',
             'menu_slug' => 'blogit-taxonomies',
-            'callback' => array($this->callbacks, 'adminTaxonomies')             
+            'callback' => array($this->callbacks, 'adminTaxonomy')             
         ],
         [
             'parent_slug' => 'blogit-plugin',
@@ -72,7 +77,7 @@ class Admin extends BaseController
             'menu_title' => 'Widgets',
             'capability' => 'manage_options',
             'menu_slug' => 'blogit-widgets',
-            'callback' => array($this->callbacks, 'adminWidgets')             
+            'callback' => array($this->callbacks, 'adminWidget')             
         ]);
     }
     public function setSettings()
@@ -80,8 +85,8 @@ class Admin extends BaseController
         $args = array(
             [
                 'option_group' => 'blogit_options_group',
-                'option_name' => 'first_name'
-                // 'callback' => array($this->callbacks, 'blogitOptionsGroup')
+                'option_name' => 'first_name',
+                'callback' => array($this->callbacks, 'blogitOptionsGroup')
             ],
             [
                 'option_group' => 'blogit_options_group',
@@ -96,7 +101,7 @@ class Admin extends BaseController
             [
                 'id' => 'blogit_admin_index',
                 'title' => 'Settings',
-                'callback' => array($this->callbacks, 'blogitaddAdminSection'),
+                'callback' => array($this->callbacks, 'blogitAdminSection'),
                 'page' => 'blogit-plugin'
             ],
         );

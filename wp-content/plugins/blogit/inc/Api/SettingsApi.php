@@ -12,9 +12,13 @@ namespace Inc\Api;
 class SettingsApi
 {
     protected $admin_pages = array();
+
     protected $admin_subpages = array();
+
     protected $settings = array();
+
     protected $sections = array();
+
     protected $fields = array();
 
     //Them acction addAdminMenu vao hook
@@ -44,7 +48,7 @@ class SettingsApi
         return $this;
     }
     //Set subpage
-    public function withSubPage(string $title =''){
+    public function withSubPage(string $title = null){
         if (empty($this->admin_pages)) {
             return $this;
         }
@@ -97,10 +101,6 @@ class SettingsApi
 
         return $this;
     }
-    public function sanitize($input)
-    {
-        return $input;
-    }
     public function registerCustomFields()
     {
         //register setting
@@ -109,8 +109,7 @@ class SettingsApi
             register_setting(
                 $setting['option_group'], //Option group
                 $setting['option_name'], //Option name
-                'sanitize'
-                // (isset($setting['callback'])? $setting['callback'] : '')
+                (isset($setting['callback'])? $setting['callback'] : '')
             );
         }
         //add settings section

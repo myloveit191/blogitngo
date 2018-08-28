@@ -14,7 +14,7 @@ class AdminCallbacks extends BaseController
         return require_once "$this->plugin_path/templates/admin.php";
     }
 
-    public function adminTaxonomies()
+    public function adminTaxonomy()
     {
         return require_once "$this->plugin_path/templates/taxonomy.php";
     }
@@ -24,21 +24,22 @@ class AdminCallbacks extends BaseController
         return require_once "$this->plugin_path/templates/cpt.php";
     }
 
-    public function adminWidgets()
+    public function adminWidget()
     {
         return require_once "$this->plugin_path/templates/widget.php";
     }
-    public function blogitOptionsGroup($input){
+    public function blogitOptionsGroup($input)
+    {
         return $input;
     }
-    public function blogitaddAdminSection()
+    public function blogitAdminSection()
     {
-        echo "Check this beautifull section";
+        echo "Check this beautifull section!";
     }
     public function blogitFirstName()
     {
         $value = esc_attr(get_option('first_name'));
-        echo '<input type="text" class ="regular-text" name="first-name" value ="' . $value . '" placeholder ="Write your First Name">';
+        echo "<input type='text' class ='regular-text' name='first_name' value ='{$value}' placeholder ='Write your First Name'>";
     }
     public function blogitLastName()
     {
