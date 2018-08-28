@@ -83,15 +83,15 @@ class Admin extends BaseController
     public function setSettings()
     {
         $args = array(
-            [
+            array(
                 'option_group' => 'blogit_options_group',
                 'option_name' => 'first_name',
                 'callback' => array($this->callbacks, 'blogitOptionsGroup')
-            ],
-            [
+            ),
+            array(
                 'option_group' => 'blogit_options_group',
                 'option_name' => 'last_name'
-            ],
+            )
         );
         $this->settings->setSettings($args);
     }

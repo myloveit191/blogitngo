@@ -11,16 +11,11 @@ namespace Inc\Api;
  */
 class SettingsApi
 {
-    protected $admin_pages = array();
-
-    protected $admin_subpages = array();
-
-    protected $settings = array();
-
-    protected $sections = array();
-
-    protected $fields = array();
-
+    public $admin_pages = array();
+    public $admin_subpages = array();
+    public $settings = array();
+    public $sections = array();
+    public $fields = array();
     //Them acction addAdminMenu vao hook
     public function register()
     {
