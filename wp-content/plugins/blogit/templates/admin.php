@@ -12,7 +12,7 @@
             <form action="options.php" method="post">
                 <table class="form-table">
                 <?php 
-                    settings_fields("blogit_options_group");
+                    settings_fields("blogit_plugin_settings");
                     do_settings_sections('blogit-plugin');
                 ?>
                 </table>

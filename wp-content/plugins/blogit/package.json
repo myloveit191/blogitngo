@@ -1,0 +1,14 @@
+{
+  "name": "blogit",
+  "version": "1.0.0",
+  "description": "\"Hoc plugin wordpress\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"Dinh Nghia\"",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

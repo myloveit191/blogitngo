@@ -25,10 +25,14 @@
 } */
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus{
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:active{
     color: #555;
     cursor: default;
     background-color: #fff;
+    border: 1px solid rgba(224, 219, 219, 0.637);
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
 }
 .tab-content > .tab-pane{
     display: flex;
