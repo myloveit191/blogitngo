@@ -14,10 +14,15 @@ final class Init
     public static function get_services()
     {
         return [
-            Base\CPTController::class,
             Pages\Dashboard::class,
             Base\Enqueue::class,
-            Base\SettingsLinks::class
+            Base\SettingsLinks::class,
+            Base\CPTController::class,
+            Base\GalleryController::class,
+            Base\MembershipController::class,
+            Base\TemplateController::class,
+            Base\TestimonialController::class,
+            Base\WidgetController::class
         ];
     }
     /**

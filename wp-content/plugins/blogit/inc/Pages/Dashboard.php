@@ -19,7 +19,7 @@ class Dashboard extends BaseController
 
     public $pages = array();
 
-    public $subpages = array();
+    // public $subpages = array();
 
     public $callbacks_mngr = array();
 
@@ -36,13 +36,13 @@ class Dashboard extends BaseController
 
         $this->setPages();
 
-        $this->setSubPages();
+        // $this->setSubPages();
 
         $this->setSettings();
         $this->setSections();
         $this->setFields();
 
-        $this->settings->addPages($this->pages)->withSubPage('Dashboard')->addSubPages($this->subpages)->register();
+        $this->settings->addPages($this->pages)->withSubPage('Dashboard')->register();
     }
     
     public function setPages()
@@ -56,33 +56,6 @@ class Dashboard extends BaseController
             'icon_url' => 'dashicons-grid-view',
             'position' => 110,
         ],);
-    }
-    public function setSubPages()
-    {
-        $this->subpages = array([
-            'parent_slug' => 'blogit-plugin',
-            'page_title' => "Custom Post Type",
-            'menu_title' => 'CPT',
-            'capability' => 'manage_options',
-            'menu_slug' => 'blogit-cpt',
-            'callback' => array($this->callbacks, 'adminCpt')           
-        ],
-        [
-            'parent_slug' => 'blogit-plugin',
-            'page_title' => "Custom Taxonomies",
-            'menu_title' => 'Taxonomies',
-            'capability' => 'manage_options',
-            'menu_slug' => 'blogit-taxonomies',
-            'callback' => array($this->callbacks, 'adminTaxonomy')             
-        ],
-        [
-            'parent_slug' => 'blogit-plugin',
-            'page_title' => "Custom Widgets",
-            'menu_title' => 'Widgets',
-            'capability' => 'manage_options',
-            'menu_slug' => 'blogit-widgets',
-            'callback' => array($this->callbacks, 'adminWidget')             
-        ]);
     }
     public function setSettings()
     {
