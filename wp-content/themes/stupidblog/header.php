@@ -13,7 +13,8 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <?php 
+            <?php
+                do_action('blogit_before_header'); 
                 include_once "core/custom-menu.php";
                 wp_nav_menu(
                     array(
